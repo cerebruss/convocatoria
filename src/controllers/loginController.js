@@ -6,7 +6,7 @@ let getPageLogin = (req, res) => {
         errors: req.flash("errors")
     });
 };
-
+//validacion
 let handleLogin = async (req, res) => {
     let errorsArr = [];
     let validationErrors = validationResult(req);
@@ -27,7 +27,7 @@ let handleLogin = async (req, res) => {
         return res.redirect("/login");
     }
 };
-
+//evitar mas de una sesion
 let checkLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
         return res.redirect("/login");
@@ -41,7 +41,7 @@ let checkLoggedOut = (req, res, next) => {
     }
     next();
 };
-
+//logica del boton cerrar
 let postLogOut = (req, res) => {
     req.session.destroy(function(err) {
         return res.redirect("/login");

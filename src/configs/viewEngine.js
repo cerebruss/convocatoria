@@ -1,6 +1,6 @@
 import express from "express";
 /**
- * Config view engine for app
+ * motor de plantilla
  */
 let configViewEngine = (app)=> {
     app.use(express.static("./src/public"));

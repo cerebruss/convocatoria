@@ -23,21 +23,21 @@ app.use(session({
     }
 }));
 
-// Enable body parser post data
+// body parser data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Config view engine
+//Config motor de vista
 configViewEngine(app);
 
-//Enable flash message
+//flash message
 app.use(connectFlash());
 
 //Config passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// init all web routes
+// iniciar todas las rutas
 initWebRoutes(app);
 
 let port = process.env.PORT || 8080;

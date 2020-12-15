@@ -5,13 +5,15 @@ import loginController from "../controllers/loginController";
 import auth from "../validation/authValidation";
 import passport from "passport";
 import initPassportLocal from "../controllers/passportLocalController";
+//import admin from "../controllers/adminController";
 
-// Init all passport
+// Iniciar todo el passport
 initPassportLocal();
 
 let router = express.Router();
 
 let initWebRoutes = (app) => {
+    //router.get("/admin" , adminController);
     router.get("/", loginController.checkLoggedIn, homePageController.handleHelloWorld);
     router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
@@ -19,8 +21,10 @@ let initWebRoutes = (app) => {
         failureRedirect: "/login",
         successFlash: true,
         failureFlash: true
+        
     }));
 
+    
     router.get("/register", registerController.getPageRegister);
     router.post("/register", auth.validateRegister, registerController.createNewUser);
     router.post("/logout", loginController.postLogOut);

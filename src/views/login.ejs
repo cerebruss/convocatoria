@@ -17,7 +17,7 @@
             </div>
             <div class="col-5 mt-2">
                 <div>
-                    <% if(errors != "") { %>
+                    <% if(errors != "") { %>       <!--llamar la validacion de errores o la alerta-->
                         <% errors.forEach((item) => { %>
                             <div class="alert alert-danger">
                                 <%- item %>
