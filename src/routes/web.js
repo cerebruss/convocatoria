@@ -5,6 +5,7 @@ import loginController from "../controllers/loginController";
 import auth from "../validation/authValidation";
 import passport from "passport";
 import initPassportLocal from "../controllers/passportLocalController";
+//import muroController from "../controllers/muroController";
 //import admin from "../controllers/adminController";
 
 // Iniciar todo el passport
@@ -14,6 +15,8 @@ let router = express.Router();
 
 let initWebRoutes = (app) => {
     //router.get("/admin" , adminController);
+
+    //router.get("/muro", muroController);
     router.get("/", loginController.checkLoggedIn, homePageController.handleHelloWorld);
     router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
